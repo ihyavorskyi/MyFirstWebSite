@@ -1,0 +1,52 @@
+﻿@model MyWebSite.Models.IndexViewModel
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Керування";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Зміна параметрів облікового запису</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Ім'я :</dt>
+        <dd>
+            @ViewBag.User.FirstName
+        </dd>
+        <dt>Прізвище :</dt>
+        <dd>
+            @ViewBag.User.LastName
+        </dd>
+        <dt>Вік :</dt>
+        <dd>
+            @ViewBag.User.Age
+        </dd>
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>Роль :</dt>
+            <dd>
+                Адміністратор
+            </dd>
+        }
+        else
+        {
+            <dt>Роль :</dt>
+            <dd>
+                Користувач
+            </dd>
+        }
+        <dd>
+            @Html.ActionLink("Змінити дані користувача", "ChangeUserData", new { Id = User.Identity.GetUserId() })
+        </dd>
+        <dt>Пароль :</dt>
+        <dd>
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Змінити пароль", "ChangePassword")
+            }
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFirstPage.cshtml";
+}
+
+@{
+    ViewBag.Title = "MySocNet";
+}
+
+<div class="container">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+            .container p {
+                width: 400px;
+                padding: 15px;
+                background-color: white;
+            }
+
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: aquamarine; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 50px; /* Скругляем уголки */
+        }
+    </style>
+    <div>
+        <h1>Вас вітає MySocialNetwork!</h1>
+        <p><a href="/Account/Register" class="btn">Зареєструватися</a> <a href="/Account/Login" class="btn">Увійти</a></p>
+    </div>
+</div>

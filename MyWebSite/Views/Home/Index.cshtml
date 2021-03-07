@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<div>
+    @foreach (var i in ViewBag.Posts)
+    {
+        if (i.UserId != User.Identity.GetUserId().ToString() && i.Reklama == true)
+        {
+            <h3>Реклама :</h3>
+            <dl>
+                <dd>@i.PostText</dd>
+                <dd>@i.PostTime</dd>
+            </dl>
+        }
+    }
+    <br />
+</div>
+<div>
+    <h3>Активність користувачів :</h3>
+    @foreach (var i in ViewBag.Posts)
+    {
+        if (i.UserId != User.Identity.GetUserId().ToString() && i.Reklama == false)
+        {
+<dl>
+    <dt>@i.OwnerName публікує :</dt>
+    <dd>@i.PostText</dd>
+    <dd>@i.PostTime</dd>
+    <dd>@Html.ActionLink("Коментарі", "GetComments", new { PostId = i.Id })</dd>
+</dl>
+        }
+    }
+</div>

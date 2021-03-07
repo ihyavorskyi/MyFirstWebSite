@@ -1,0 +1,37 @@
+﻿@model MyWebSite.Models.Comment
+
+@{
+    ViewBag.Title = "Редагувати коментар";
+}
+
+    <h2>Редагувати коментар</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<fieldset>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.PostId)
+    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.CommentTime)
+    @Html.HiddenFor(model => model.OwnerName)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CommentText, "Текст коментаря", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.CommentText, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Зберегти зміни" class="btn btn-danger" />
+        </div>
+    </div>
+</fieldset>    
+}
+
+<div>
+    @Html.ActionLink("Назад до публікаії", "GetComments",new { PostId=Model.PostId})
+</div>

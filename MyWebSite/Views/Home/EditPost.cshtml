@@ -1,0 +1,30 @@
+﻿@model MyWebSite.Models.Post
+@{
+    ViewBag.Title = "EditPost";
+}
+
+<h2>Редагування публікації</h2>
+
+@using (Html.BeginForm("EditPost", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.UserId)
+    @Html.HiddenFor(m => m.Reklama)
+    @Html.HiddenFor(m => m.PostTime)
+    @Html.HiddenFor(m => m.OwnerName)
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PostText, "Текст публікації", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.PostText, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Зберегти зміни" class="btn btn-danger" />
+        </div>
+    </div>
+</fieldset>
+}

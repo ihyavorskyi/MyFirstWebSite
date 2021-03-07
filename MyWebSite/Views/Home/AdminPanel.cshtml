@@ -1,0 +1,147 @@
+﻿@using Microsoft.AspNet.Identity
+
+<style>
+    table {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        font-size: 14px;
+        border-radius: 10px;
+        border-spacing: 0;
+        text-align: center;
+    }
+
+    th {
+        background: #BCEBDD;
+        color: white;
+        text-shadow: 0 1px 1px #2D2020;
+        padding: 10px 20px;
+    }
+
+    th, td {
+        border-style: solid;
+        border-width: 0 1px 1px 0;
+        border-color: white;
+    }
+
+        th:first-child, td:first-child {
+            text-align: left;
+        }
+
+        th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 10px;
+            border-right: none;
+        }
+
+    td {
+        padding: 10px 20px;
+        background: #F8E391;
+    }
+
+    tr:last-child td:first-child {
+        border-radius: 0 0 0 10px;
+    }
+
+    tr:last-child td:last-child {
+        border-radius: 0 0 10px 0;
+    }
+
+    tr td:last-child {
+        border-right: none;
+    }
+</style>
+<h1>Адміністративна панель</h1>
+<br/>
+<table>
+    <tr>
+        <th>
+             Люди
+        </th><th>
+             ID
+        </th>
+        <th>
+            Ім'я
+        </th>
+        <th>
+            Прізвище
+        </th>
+        <th>
+            Пошта
+        </th>
+        <th>
+            Функції
+        </th>
+
+    </tr>
+
+    @foreach (var i in ViewBag.Users)
+    {
+        if (i.Id != User.Identity.GetUserId().ToString())
+        {
+            <tr>
+                <td>                    
+                </td>
+                <td>
+                    @i.Id
+                </td>
+                <td>
+                    @i.FirstName
+                </td>
+                <td>
+                    @i.LastName
+                </td>
+                <td>
+                    @i.Email
+                </td>
+                <td>
+                    @Html.ActionLink("Видалити", "DeleteUser",new { Id = i.Id})
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<br/>
+<table>
+    <tr>
+        <th>
+            Пости
+        </th>
+        <th>
+             ID
+        </th>
+        <th>
+            Ім'я власника
+        </th>
+        <th>
+            Текст
+        </th>
+        <th>
+            Функції
+        </th>
+
+    </tr>
+
+    @foreach (var i in ViewBag.Posts)
+    {
+            <tr>
+                <td>                    
+                </td> 
+                <td>
+                    @i.Id
+                </td>
+                <td>
+                    @i.OwnerName
+                </td>
+                <td>
+                    @i.PostText
+                </td>
+                <td>
+                    @Html.ActionLink("Видалити", "DeletePost",new { Id = i.Id })
+                </td>
+            </tr>
+        
+    }
+</table>
