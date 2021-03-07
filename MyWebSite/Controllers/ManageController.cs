@@ -1,20 +1,18 @@
-﻿using System;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyWebSite.Models;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace MyWebSite.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -35,9 +33,9 @@ namespace MyWebSite.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -80,12 +78,13 @@ namespace MyWebSite.Controllers
         {
             return View();
         }
-        
+
         public ActionResult ChangeUserData(string Id)
         {
             ApplicationUser user = db.Users.Find(Id);
             return View(user);
-        } 
+        }
+
         [HttpPost]
         public ActionResult ChangeUserData(ApplicationUser user)
         {
@@ -157,7 +156,8 @@ namespace MyWebSite.Controllers
             base.Dispose(disposing);
         }
 
-#region Вспомогательные приложения
+        #region Вспомогательные приложения
+
         // Используется для защиты от XSRF-атак при добавлении внешних имен входа
         private const string XsrfKey = "XsrfId";
 
@@ -208,6 +208,6 @@ namespace MyWebSite.Controllers
             Error
         }
 
-#endregion
+        #endregion Вспомогательные приложения
     }
 }

@@ -8,13 +8,13 @@
     {
         if (i.Id == ViewBag.UserId)
         {
-            <dl>
-                <dt>Cторінка користувача @i.FirstName</dt>
-                <dd>Ім'я - @i.FirstName</dd>
-                <dd>Прізвище - @i.LastName</dd>
-                <dd>Вік - @i.Age р.</dd>
-                <dd>Пошта - @i.Email</dd>
-            </dl>
+    <dl>
+        <dt>Cторінка користувача @i.FirstName</dt>
+        <dd>Ім'я - @i.FirstName</dd>
+        <dd>Прізвище - @i.LastName</dd>
+        <dd>Вік - @i.Age р.</dd>
+        <dd>Пошта - @i.Email</dd>
+    </dl>
         }
     }
     <h4>Пости користувача :</h4>
@@ -22,13 +22,12 @@
     {
         if (i.UserId == ViewBag.UserId)
         {
-            <dl>
-                <dt>@i.OwnerName публікує :</dt>
-                <dd>@i.PostText</dd>
-                <dd>@i.PostTime</dd>
-                <dd>@Html.ActionLink("Коментарі", "GetComments", new { PostId = i.Id })</dd>
-            </dl>
+    <dl>
+        <dt>@i.OwnerName публікує :</dt>
+        <dd>@i.PostText</dd>
+        <dd>@i.PostTime</dd>
+        <dd>@Html.ActionLink("Коментарі", "GetComments", new { PostId = i.Id })</dd>
+    </dl>
         }
     }
 </div>
-

@@ -5,6 +5,7 @@ using MyWebSite.Models;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(MyWebSite.Startup))]
+
 namespace MyWebSite
 {
     public partial class Startup

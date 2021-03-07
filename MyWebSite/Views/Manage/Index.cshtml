@@ -26,17 +26,17 @@
         </dd>
         @if (User.IsInRole("Admin"))
         {
-            <dt>Роль :</dt>
-            <dd>
-                Адміністратор
-            </dd>
+        <dt>Роль :</dt>
+        <dd>
+            Адміністратор
+        </dd>
         }
         else
         {
-            <dt>Роль :</dt>
-            <dd>
-                Користувач
-            </dd>
+        <dt>Роль :</dt>
+        <dd>
+            Користувач
+        </dd>
         }
         <dd>
             @Html.ActionLink("Змінити дані користувача", "ChangeUserData", new { Id = User.Identity.GetUserId() })
@@ -45,7 +45,7 @@
         <dd>
             @if (Model.HasPassword)
             {
-                @Html.ActionLink("Змінити пароль", "ChangePassword")
+            @Html.ActionLink("Змінити пароль", "ChangePassword")
             }
         </dd>
     </dl>

@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
 
 namespace MyWebSite.Models
 {
@@ -23,6 +22,7 @@ namespace MyWebSite.Models
         [Compare("NewPassword", ErrorMessage = "Новий пароль і підтвердження паролю не співпадають.")]
         public string ConfirmPassword { get; set; }
     }
+
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }

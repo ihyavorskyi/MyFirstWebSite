@@ -16,31 +16,28 @@
 <h3>Коментарі</h3>
 @foreach (var i in ViewBag.Comments)
 {
-    <dl>
-        <dt>@i.OwnerName коментує :</dt>
-        <dd>@i.CommentText</dd>
-        <dd>@i.CommentTime</dd>
-        @if (i.UserId == User.Identity.GetUserId())
+<dl>
+    <dt>@i.OwnerName коментує :</dt>
+    <dd>@i.CommentText</dd>
+    <dd>@i.CommentTime</dd>
+    @if (i.UserId == User.Identity.GetUserId())
         {
-            <dd>@Ajax.ActionLink("Видалити", "DeleteComments", new { Id = i.Id }, new AjaxOptions { Confirm = "Видалити?" })</dd>
-            <dd>@Html.ActionLink("Редагувати", "EditComments", new { Id = i.Id })</dd>
+    <dd>@Ajax.ActionLink("Видалити", "DeleteComments", new { Id = i.Id }, new AjaxOptions { Confirm = "Видалити?" })</dd>
+    <dd>@Html.ActionLink("Редагувати", "EditComments", new { Id = i.Id })</dd>
         }
-        @if (ViewBag.Post.UserId == User.Identity.GetUserId() || User.IsInRole("Admin"))
+    @if (ViewBag.Post.UserId == User.Identity.GetUserId() || User.IsInRole("Admin"))
         {
-            <dd>@Ajax.ActionLink("Видалити", "DeleteComments", new { Id = i.Id }, new AjaxOptions { Confirm = "Видалити?" })</dd>
+    <dd>@Ajax.ActionLink("Видалити", "DeleteComments", new { Id = i.Id }, new AjaxOptions { Confirm = "Видалити?" })</dd>
         }
-    </dl>
+</dl>
 }
 @using (Ajax.BeginForm("GetComments", new AjaxOptions
 {
     UpdateTargetId = "results"
 }))
 {
-    <input type="hidden" name="PostId" value="@ViewBag.Id">
-    <input type="text" name="CommentText" />
-    <input type="submit" value="Коментувати">
+<input type="hidden" name="PostId" value="@ViewBag.Id">
+<input type="text" name="CommentText" />
+<input type="submit" value="Коментувати">
 }
 <div id="results"></div>
-
-
-

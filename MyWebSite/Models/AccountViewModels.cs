@@ -7,9 +7,10 @@ namespace MyWebSite.Models
     {
         [Display(Name = "Вік")]
         public int Age { get; set; }
+
         [Display(Name = "Прізвище")]
         public string LastName { get; set; }
-        
+
         [Required]
         [Display(Name = "Ім'я")]
         public string FirstName { get; set; }
@@ -25,12 +26,12 @@ namespace MyWebSite.Models
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-
         [DataType(DataType.Password)]
         [Display(Name = "Підтвердити пароль")]
         [Compare("Password", ErrorMessage = "Паролі не співпадають")]
         public string ConfirmPassword { get; set; }
     }
+
     public class LoginViewModel
     {
         [Required]
@@ -46,6 +47,7 @@ namespace MyWebSite.Models
         [Display(Name = "Запам'ятати")]
         public bool RememberMe { get; set; }
     }
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -74,6 +76,7 @@ namespace MyWebSite.Models
         [Required]
         [Display(Name = "Код")]
         public string Code { get; set; }
+
         public string ReturnUrl { get; set; }
 
         [Display(Name = "Запомнить браузер?")]
@@ -88,7 +91,7 @@ namespace MyWebSite.Models
         [Display(Name = "Адрес электронной почты")]
         public string Email { get; set; }
     }
-    
+
     public class ResetPasswordViewModel
     {
         [Required]

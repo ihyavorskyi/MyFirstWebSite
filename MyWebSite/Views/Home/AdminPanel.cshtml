@@ -53,7 +53,7 @@
     }
 </style>
 <h1>Адміністративна панель</h1>
-<br/>
+<br />
 <table>
     <tr>
         <th>
@@ -73,7 +73,6 @@
         <th>
             Функції
         </th>
-
     </tr>
 
     @foreach (var i in ViewBag.Users)
@@ -81,7 +80,7 @@
         if (i.Id != User.Identity.GetUserId().ToString())
         {
             <tr>
-                <td>                    
+                <td>
                 </td>
                 <td>
                     @i.Id
@@ -103,7 +102,7 @@
     }
 </table>
 
-<br/>
+<br />
 <table>
     <tr>
         <th>
@@ -121,14 +120,13 @@
         <th>
             Функції
         </th>
-
     </tr>
 
     @foreach (var i in ViewBag.Posts)
     {
             <tr>
-                <td>                    
-                </td> 
+                <td>
+                </td>
                 <td>
                     @i.Id
                 </td>
@@ -142,6 +140,6 @@
                     @Html.ActionLink("Видалити", "DeletePost",new { Id = i.Id })
                 </td>
             </tr>
-        
+
     }
 </table>

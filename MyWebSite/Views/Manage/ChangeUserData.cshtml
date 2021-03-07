@@ -4,12 +4,12 @@
     ViewBag.Title = "Змінити дані користувача";
 }
 
-    <h2>Змінити дані користувача</h2>
+<h2>Змінити дані користувача</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
+@Html.AntiForgeryToken()
+
 <div class="form-horizontal">
     @Html.HiddenFor(model => model.Email)
     @Html.HiddenFor(model => model.EmailConfirmed)
@@ -23,7 +23,6 @@
     @Html.HiddenFor(model => model.AccessFailedCount)
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.UserName)
-
 
     <div class="form-group">
         @Html.LabelFor(model => model.Age,"Вік", htmlAttributes: new { @class = "control-label col-md-2" })

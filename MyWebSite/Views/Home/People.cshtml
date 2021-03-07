@@ -61,7 +61,7 @@
         <tr>
             <th>
                 Ім'я
-            </th> 
+            </th>
             <th>
                 Функції
             </th>
@@ -70,10 +70,10 @@
         {
             if (i.Id != User.Identity.GetUserId().ToString())
             {
-                <tr>
-                    <td><p>@i.FirstName  @i.LastName</p></td>
-                    <td><p>@Html.ActionLink("Відвідати сторінку", "UserWall", new { UserId = i.Id })</p></td>
-                </tr>
+        <tr>
+            <td><p>@i.FirstName  @i.LastName</p></td>
+            <td><p>@Html.ActionLink("Відвідати сторінку", "UserWall", new { UserId = i.Id })</p></td>
+        </tr>
             }
         }
     </table>
